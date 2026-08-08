@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisionDetect Pro</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <div class="brand-text">
+                <h1>VisionDetect <span>Pro</span></h1>
+                <p>Real-Time Object Detection &amp; Tracking</p>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <span id="status-badge" class="badge badge-idle">STOPPED</span>
+            <span id="rec-badge" class="badge badge-rec hidden">REC</span>
+            <span id="clock" class="clock">--:--:--</span>
+        </div>
+    </header>
+
+    <main class="layout">
+        <!-- Video / Stream panel -->
+        <section class="video-panel">
+            <div class="video-wrap">
+                <img id="stream" alt="Detection stream" />
+                <div class="video-overlay">
+                    <div class="overlay-corner top-left"></div>
+                    <div class="overlay-corner top-right"></div>
+                    <div class="overlay-corner bottom-left"></div>
+                    <div class="overlay-corner bottom-right"></div>
+                    <div class="video-info">
+                        <span id="stream-source">No source</span>
+                        <span id="stream-res">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <select id="source-type" class="ctrl-select">
+                    <option value="video">Video File</option>
+                    <option value="image">Image</option>
+                    <option value="camera">Webcam</option>
+                </select>
+                <select id="source-pick" class="ctrl-select grow"></select>
+                <button id="btn-start" class="btn btn-start">Start</button>
+                <button id="btn-stop" class="btn btn-stop">Stop</button>
+                <button id="btn-record" class="btn btn-record">Record</button>
+                <button id="btn-shot" class="btn btn-shot">Screenshot</button>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="cards-grid">
+                <div class="stat-card">
+                    <span class="stat-label">FPS</span>
+                    <span id="stat-fps" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Inference</span>
+                    <span id="stat-infer" class="stat-value">0<span class="unit">ms</span></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Active</span>
+                    <span id="stat-active" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Unique</span>
+                    <span id="stat-unique" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Persons</span>
+                    <span id="stat-persons" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Vehicles</span>
+                    <span id="stat-vehicles" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Detected Objects</h2>
+                <div id="object-list" class="object-list">
+                    <p class="muted">No detections yet</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">FPS Trend</h2>
+                <canvas id="fps-chart" height="110"></canvas>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Session</h2>
+                <div class="session-grid">
+                    <div class="session-item">
+                        <span class="k">Detections</span>
+                        <span id="sess-detections" class="v">0</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="k">Avg FPS</span>
+                        <span id="sess-avgfps" class="v">0</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="k">Frames</span>
+                        <span id="sess-frames" class="v">0</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="k">Uptime</span>
+                        <span id="sess-uptime" class="v">00:00:00</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="k">Source</span>
+                        <span id="sess-source" class="v">-</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="k">Model</span>
+                        <span id="sess-model" class="v">-</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/app.js?v=2"></script>
+</body>
+</html>

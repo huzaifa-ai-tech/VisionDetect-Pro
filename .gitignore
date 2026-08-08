@@ -1,0 +1,83 @@
+# ============================================================
+# VisionDetect Pro - .gitignore
+# ============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ---------- Virtual Environment ----------
+venv/
+env/
+ENV/
+.venv/
+.conda/
+.env
+.env.*
+.venv/
+
+# ---------- IDEs / Editors ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.workspace/
+
+# ---------- Testing ----------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.tox/
+.nox/
+hypothesis/
+
+# ---------- Output (generated) ----------
+output/
+logs/
+*.log
+
+# ---------- Models (large weights, auto-downloaded) ----------
+models/*.pt
+models/*.onnx
+models/*.engine
+models/*.torchscript
+
+# ---------- Input test data ----------
+test_data/*
+!test_data/videos/
+!test_data/images/
+test_data/videos/*
+!test_data/videos/.gitkeep
+test_data/images/*
+!test_data/images/.gitkeep
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+*.ipynb
